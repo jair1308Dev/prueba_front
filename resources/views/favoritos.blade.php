@@ -77,26 +77,27 @@
             </ul>
 
             <div class="tab-content mt-3">
-                <!-- Tab de Cocteles -->
+                <!-- Tab para Cocteles Favoritos -->
                 <div class="tab-pane fade show active" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
                     <div class="card">
                         <div class="card-header">
-                            Cocteles
+                            Cocteles Favoritos
                         </div>
-                        <input type="text" id="buscador" class="form-control mb-3"
-                            placeholder="Buscar por ID o Nombre...">
-
                         <div class="card-body">
                             <div class="table-wrapper">
-                                <table id="coctelesList" class="table">
+                                <table id="coctelesFavoritosList" class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col"># ID</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Acciones</th>
+                                            <th scope="col">Instrucciones</th>
+                                            <th scope="col">Ingredientes</th>
+                                            <th scope="col">Acciones</th> 
                                         </tr>
                                     </thead>
-                                    <tbody></tbody>
+                                    <tbody>
+                                        <!-- Los cocteles favoritos se cargarán dinámicamente aquí -->
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -107,18 +108,42 @@
     </div>
 </div>
 
-<div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="detalleModalLabel">Detalle del Cóctel</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-            </div>
-            <div class="modal-body" id="detalleModalBody">
-                Cargando detalle...
-            </div>
+<!-- Modal para Editar Cóctel -->
+<div class="modal fade" id="modalEditarCoctel" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="formEditarCoctel">
+        <input type="hidden" id="idLine" name="idLine" value="">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarLabel">Editar Cóctel</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
+        <div class="modal-body">
+          <input type="hidden" id="editarId">
+
+          <div class="mb-3">
+            <label for="editarNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="editarNombre" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="editarInstrucciones" class="form-label">Instrucciones</label>
+            <textarea class="form-control" id="editarInstrucciones" rows="3" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="editarIngredientes" class="form-label">Ingredientes (nombre y medida separados por coma, uno por línea)</label>
+            <textarea class="form-control" id="editarIngredientes" rows="4" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
+
 @endsection
-@vite('resources/js/cocteles/coctelesFavoritos.js')
+@vite('resources/js/cocteles/listCoctelesFavoritos.js')
