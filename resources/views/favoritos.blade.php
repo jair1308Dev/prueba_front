@@ -70,9 +70,12 @@
         <div class="col-md-12">
             <!-- Navegación de Tabs -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
+
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="favoritos-tab" data-bs-toggle="tab" href="#favoritos" role="tab"
-                        aria-controls="favoritos" aria-selected="true">Cocteles</a>
+                    <a class="nav-link"  href="{{ route('home') }}" role="tab" aria-selected="true">Cocteles</a>
+                </li>
+                <li class="nav-item active" role="presentation">
+                    <a class="nav-link active"  href="{{ route('favoritos') }}" role="tab"  aria-selected="true">Cocteles favoritos</a>
                 </li>
             </ul>
 
@@ -92,7 +95,7 @@
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Instrucciones</th>
                                             <th scope="col">Ingredientes</th>
-                                            <th scope="col">Acciones</th> 
+                                            <th scope="col">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>

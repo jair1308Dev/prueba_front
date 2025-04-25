@@ -3,7 +3,7 @@
 <style>
     /* Estilo general para las tablas */
     .table-wrapper {
-        max-height: 400px;
+        max-height: 500px;
         overflow-y: auto;
         display: block;
     }
@@ -74,15 +74,15 @@
                     <a class="nav-link active" id="favoritos-tab" data-bs-toggle="tab" href="#favoritos" role="tab"
                         aria-controls="favoritos" aria-selected="true">Cocteles</a>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="{{ route('favoritos') }}" role="tab"  aria-selected="true">Cocteles favoritos</a>
+                </li>
             </ul>
 
             <div class="tab-content mt-3">
                 <!-- Tab de Cocteles -->
                 <div class="tab-pane fade show active" id="favoritos" role="tabpanel" aria-labelledby="favoritos-tab">
                     <div class="card">
-                        <div class="card-header">
-                            Cocteles
-                        </div>
                         <input type="text" id="buscador" class="form-control mb-3"
                             placeholder="Buscar por ID o Nombre...">
 
